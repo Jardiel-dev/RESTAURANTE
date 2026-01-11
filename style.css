@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  gap: 40px;
+  padding: 20px;
+}
+
+.cardapio, .carrinho {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  width: 50%;
+}
+
+.prato {
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
+.prato button {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.carrinho li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.carrinho button {
+  cursor: pointer;
+}
