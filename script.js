@@ -3,11 +3,28 @@
 // ============================
 
 const pratos = [
-  { nome: "Hambúrguer", preco: 25.00 },
-  { nome: "Pizza", preco: 40.00 },
-  { nome: "Batata Frita", preco: 15.00 },
-  { nome: "Refrigerante", preco: 8.00 }
+  {
+    nome: "Hambúrguer",
+    preco: 25.00,
+    imagem: "img/hamburguer.jpg"
+  },
+  {
+    nome: "Pizza",
+    preco: 40.00,
+    imagem: "img/pizza.jpg"
+  },
+  {
+    nome: "Batata Frita",
+    preco: 15.00,
+    imagem: "img/batata.jpg"
+  },
+  {
+    nome: "Refrigerante",
+    preco: 8.00,
+    imagem: "img/refri.jpg"
+  }
 ];
+
 
 // ============================
 // ELEMENTOS DA TELA
@@ -36,12 +53,20 @@ function atualizarCarrinho() {
     const li = document.createElement("li");
 
     li.innerHTML = `
-      ${item.nome} (x${item.qtd}) - R$ ${(item.preco * item.qtd).toFixed(2)}
-      <div>
-        <button onclick="diminuirQtd(${index})">➖</button>
-        <button onclick="aumentarQtd(${index})">➕</button>
-      </div>
-    `;
+  <div class="item-info">
+    <strong>${item.nome}</strong>
+    <span>Qtd: ${item.qtd}</span>
+  </div>
+
+  <div class="item-acoes">
+    <span class="preco">R$ ${(item.preco * item.qtd).toFixed(2)}</span>
+    <div class="botoes-qtd">
+      <button onclick="diminuirQtd(${index})">−</button>
+      <button onclick="aumentarQtd(${index})">+</button>
+    </div>
+  </div>
+`;
+
 
     listaCarrinho.appendChild(li);
     total += item.preco * item.qtd;
@@ -96,11 +121,29 @@ pratos.forEach((prato) => {
     atualizarCarrinho();
   });
 
-  div.innerHTML = `
+ div.innerHTML = `
+  <img src="${prato.imagem}" alt="${prato.nome}">
+  <div class="prato-info">
     <h3>${prato.nome}</h3>
     <p>R$ ${prato.preco.toFixed(2)}</p>
-  `;
+  </div>
+`;
+
 
   div.appendChild(botao);
   listaPratos.appendChild(div);
+});
+
+const botaoFinalizar = document.getElementById("finalizar-pedido");
+
+botaoFinalizar.addEventListener("click", () => {
+  if (carrinho.length === 0) {
+    alert("Seu carrinho está vazio!");
+    return;
+  }
+
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+  localStorage.setItem("total", total.toFixed(2));
+
+  window.location.href = "checkout.html";
 });

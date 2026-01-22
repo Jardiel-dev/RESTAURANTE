@@ -1,31 +1,295 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+ 
+  background-color: #05040427;
+
+  padding: 20px;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
 .container {
   display: flex;
-  gap: 40px;
-  padding: 20px;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
 }
 
 .cardapio, .carrinho {
-  background-color: #f9f9f9;
+  background: white;
   padding: 20px;
-  border-radius: 8px;
-  width: 50%;
+  border-radius: 12px;
+}
+
+.cardapio {
+  width: 70%;
+}
+
+.carrinho {
+  width: 30%;
+}
+
+#lista-pratos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
 }
 
 .prato {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  background: #fff;
+}
+
+.prato:hover {
+  transform: translateY(-5px);
+}
+
+.prato img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.prato-info {
+  padding: 15px;
+}
+
+.prato-info h3 {
+  margin-bottom: 5px;
+}
+
+.prato-info p {
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .prato button {
-  padding: 6px 12px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #1f3a5f;
+  color: white;
   cursor: pointer;
+  border-radius: 6px;
+  transition: 0.3s;
 }
+
+.prato button:hover {
+  background: #0b7425;
+}
+
+.carrinho ul {
+  list-style: none;
+  margin-top: 15px;
+}
+
 .carrinho li {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 8px;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .carrinho button {
+  margin-left: 5px;
   cursor: pointer;
 }
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .cardapio, .carrinho {
+    width: 100%;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  max-width: 1200px;
+  margin: 0 auto 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f3a5f;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  background-color: #1c3561;
+  transition: all 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: #318538;
+  color: rgb(255, 255, 255);
+  transform: translateY(-2px);
+}
+
+
+.carrinho ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.carrinho li {
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.item-acoes {
+  text-align: right;
+}
+
+.preco {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.botoes-qtd {
+  display: flex;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.botoes-qtd button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 6px;
+  background: #1f3a5f;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.botoes-qtd button:hover {
+  background: #0b7425;
+}
+
+/* TOTAL */
+.carrinho p {
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  border-top: 2px solid #ddd;
+  padding-top: 10px;
+}
+#finalizar-pedido {
+  width: 100%;
+  margin-top: 15px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background-color: #0b7425;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#finalizar-pedido:hover {
+  background-color: #095d1f;
+}
+
+.checkout {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  gap: 30px;
+}
+
+.resumo, .pagamento {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 50%;
+}
+
+.resumo ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.resumo li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.total-final {
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#confirmar-pedido {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #1f3a5f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#confirmar-pedido:hover {
+  background: #0b7425;
+}
+
+@media (max-width: 768px) {
+  .checkout {
+    flex-direction: column;
+  }
+
+  .resumo, .pagamento {
+    width: 100%;
+  }
+}
+

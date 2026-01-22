@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Finalizar Pedido</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1 class="titulo">🧾 Finalizar Pedido</h1>
+
+  <main class="checkout">
+    <section class="resumo">
+      <h2>Resumo do Pedido</h2>
+      <ul id="resumo-itens"></ul>
+      <p class="total-final">Total: R$ <span id="total-final"></span></p>
+    </section>
+
+    <section class="pagamento">
+      <h2>Forma de Pagamento</h2>
+
+      <label>
+        <input type="radio" name="pagamento" checked>
+        Cartão de Crédito
+      </label><br>
+
+      <label>
+        <input type="radio" name="pagamento">
+        Pix
+      </label><br>
+
+      <label>
+        <input type="radio" name="pagamento">
+        Dinheiro
+      </label>
+
+      <button id="confirmar-pedido">Confirmar Pedido</button>
+    </section>
+  </main>
+
+  <script src="checkout.js"></script>
+</body>
+</html>
