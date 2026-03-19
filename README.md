@@ -2,6 +2,8 @@
 
 Projeto desenvolvido com o objetivo de praticar **JavaScript, manipulação de DOM e lógica de programação**, simulando um sistema simples de restaurante com carrinho de compras.
 
+Link: https://jardiel-dev.github.io/RESTAURANTE/
+
 ## 🚀 Funcionalidades
 - Listagem dinâmica de pratos
 - Adição de itens ao carrinho
