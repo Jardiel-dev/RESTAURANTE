@@ -122,7 +122,14 @@ pratos.forEach((prato) => {
   });
 
  div.innerHTML = `
-  <img src="${prato.imagem}" alt="${prato.nome}">
+  <img
+    src="${prato.imagem}"
+    alt="${prato.nome}"
+    loading="lazy"
+    decoding="async"
+    width="400"
+    height="300"
+  >
   <div class="prato-info">
     <h3>${prato.nome}</h3>
     <p>R$ ${prato.preco.toFixed(2)}</p>
